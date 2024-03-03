@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(Reveal.css);
+
+@font-face {
+  font-family: 'Meander';
+  src: url(../assets/fonts/Meander.otf) format("opentype");
+}
+
+@font-face {
+  font-family: 'Lostar';
+  src: url(../assets/fonts/Lostar.otf) format("opentype");
+}
+
+@font-face {
+  font-family: 'Hipnouma';
+  src: url(../assets/fonts/Hipnouma.otf) format("opentype");
+}
