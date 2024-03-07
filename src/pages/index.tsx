@@ -75,7 +75,18 @@ const Home: FC<Props> = () => {
       {label_names.map((label, index) => (
         <>
           <Link key={index} href={`/Reveal/${index}`}>
-            <Slide media={medias[index]} label_name={label} text_color={text_colors[index]} bg_color={bg_colors[index]} label_description={label_descriptions[index]} />
+            <Slide media={medias[index].src} label_name={label} text_color={[
+              "#FF0101",
+              "#FFC700",
+              "#FF4B30",
+              "#FF7F00",
+              "#FF0030",
+              "#FE007A",
+              "#FF0000",
+              "#00E0FF",
+              "#FF0355",
+              "#FF0000",
+            ][index]} bg_color={bg_colors[index]} label_description={label_descriptions[index]} />
           </Link>
         </>
       ))}

@@ -1,15 +1,15 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef, useEffect } from "react";
-import Image, { StaticImageData } from "next/image";
 // gsap.registerPlugin(ScrollTrigger);
 
 import { FC } from "react";
 import { Canvas } from "@react-three/fiber";
-import Scene from "@/components/Scene"
+import SceneImage from "./SceneImage";
+import SceneText from "./SceneText";
 
 type Props = {
-    media: StaticImageData,
+    media: string,
     label_name: string,
     text_color: string,
     bg_color: string,
@@ -36,28 +36,38 @@ const Slide: FC<Props> = ({ media, label_name, text_color, bg_color, label_descr
     return (
         <>
             <div className="h-[200vh] w-screen flex justify-center items-center">
-                <div className={"h-[30%] w-[40%] relative overflow-hidden " + bg_color}>
-                    <Canvas
-                        gl={{
-                            antialias: true
-                        }}
-                        // orthographic
-                        camera={{
-                            fov: 45,
-                            near: 0.1,
-                            far: 100,
-                            // position: [2, 2, 6]
-                        }}
-                    >
-                        <Scene />
-                    </Canvas>
-                    {/* <Image
-                        src={media}
-                        alt={label_description}
-                    /> */}
-                    {/* <div ref={ref} className={"absolute mix-blend-exclusion txt font-meander top-[-0.05em] left-0 text-[60em] " + text_color} id="txt">{label_name.toUpperCase()}</div> */}
+                <div className={"h-fit w-[40%] relative overflow-hidden " + bg_color}>
+                    <div className="h-[1080px] w-[1080px]">
+                        <Canvas
+                            gl={{
+                                antialias: true
+                            }}
+                            camera={{
+                                fov: 45,
+                                near: 0.1,
+                                far: 100
+                            }}
+                        >
+                            <SceneImage imageSrc={media} />
+                        </Canvas>
+                    </div>
+
+                    <div ref={ref} className={"absolute h-[1080px] w-screen mix-blend-exclusion txt font-meander top-[-0.05em] left-0 text-[60em] pointer-events-none " + text_color} >
+                            <Canvas
+                                gl={{
+                                    antialias: true
+                                }}
+                                camera={{
+                                    fov: 45,
+                                    near: 0.1,
+                                    far: 100
+                                }}
+                            >
+                                <SceneText text={label_name.toUpperCase()} text_color={text_color} />
+                            </Canvas>
+                    </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }
