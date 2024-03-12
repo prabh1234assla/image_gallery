@@ -1,10 +1,11 @@
 import { FontData, MeshDistortMaterial, MeshReflectorMaterial, OrbitControls, useTexture } from "@react-three/drei";
-import { extend, useFrame } from "@react-three/fiber";
-import { FC, useRef, useState } from "react";
+import { ThreeElements, extend, useFrame } from "@react-three/fiber";
+import { FC, ReactNode, useRef, useState } from "react";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 
 import fontData from "@/assets/fonts/Meander.json"
+import { Euler, Mesh } from "three";
 
 extend({ OrbitControls: OrbitControls, TextGeometry });
 
@@ -16,21 +17,21 @@ const SceneImage: FC<Props> = ({ imageSrc }) => {
 
     const font = new FontLoader().parse(fontData);
     console.log(font)
-    const planeRef = useRef(null);
+    const planeRef = useRef<Mesh>(null);
     const [showPlane, setShowPlane] = useState(false);
+    let a = 0;
 
     useFrame((state, delta, frame) => {
-        if (!showPlane) {
-            planeRef.current.rotation.x += 0.02;
-            planeRef.current.rotation.y += 0.02;
-            planeRef.current.rotation.z += 0.02;
+        if(planeRef && planeRef.current && planeRef.current.setRotationFromEuler){
+            if (!showPlane) {
+                a+=0.02;
+                planeRef.current.setRotationFromEuler(new Euler(a, a, a, 'XYZ'))
+            }
+            else {
+                planeRef.current.setRotationFromEuler(new Euler(0, 0, 0, 'XYZ'))
+            }
         }
-        else {
-            planeRef.current.rotation.x = 0;
-            planeRef.current.rotation.y = 0;
-            planeRef.current.rotation.z = 0;
-        }
-    })
+        })
 
     return (<>
         <OrbitControls />
