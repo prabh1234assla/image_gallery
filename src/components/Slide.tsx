@@ -52,7 +52,7 @@ const Slide: FC<Props> = ({ media, label_name, text_color, bg_color, label_descr
                         </Canvas>
                 </div>
 
-                <div className={"h-fit w-[40%] relative overflow-hidden pointer-events-none " + bg_color}>
+                <div className={"h-[1080px] w-[1080px] relative overflow-hidden pointer-events-none " + bg_color}>
                     <div className="h-[1080px] w-[1080px]">
                         <Canvas
                             gl={{
