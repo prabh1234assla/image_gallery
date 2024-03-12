@@ -52,7 +52,7 @@ const Slide: FC<Props> = ({ media, label_name, text_color, bg_color, label_descr
                         </Canvas>
                     </div>
 
-                    {/* <div ref={ref} className={"absolute h-[1080px] w-screen mix-blend-exclusion txt font-meander top-[-0.05em] left-0 text-[60em] pointer-events-none " + text_color} >
+                    <div ref={ref} className={"absolute h-[1080px] w-screen mix-blend-exclusion txt font-meander top-[-0.05em] left-0 text-[60em] pointer-events-none " + text_color} >
                             <Canvas
                                 gl={{
                                     antialias: true
@@ -65,7 +65,7 @@ const Slide: FC<Props> = ({ media, label_name, text_color, bg_color, label_descr
                             >
                                 <SceneText text={label_name.toUpperCase()} text_color={text_color} />
                             </Canvas>
-                    </div> */}
+                    </div>
                 </div>
             </div >
         </>
