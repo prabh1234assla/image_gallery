@@ -34,7 +34,7 @@ const SceneText: FC<Props> = ({ text, text_color }) => {
         <OrbitControls />
         <ambientLight intensity={Math.PI} />
         <mesh ref={FontRef}>
-            <textGeometry args={[text, { font, height: 1, size: 4 }]} />
+            <textGeometry args={[text, { font, height: 1, size: 1 }]} />
             <meshBasicMaterial color={text_color} />
         </mesh>
     </>)
