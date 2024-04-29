@@ -29,22 +29,25 @@ declare module "@react-three/fiber" {
 const SceneText: FC<Props> = ({ text, text_color, imageSrc }) => {
 
     const font = new FontLoader().parse(fontData);
-    console.log(font)
     const FontRef = useRef<Mesh>(null);
 
     useEffect(() => {
         const tl = gsap.timeline();
 
-        tl.to(new Object(FontRef.current?.position), {x:-10, duration: 2, ease: Power4.easeInOut, scrollTrigger: {
-            trigger: ".slider",
-            start: "top bottom",
-            scrub: 1
-        }})
+        tl.from(new Object(FontRef.current?.position), { x: 20 });
+
+        tl.to(new Object(FontRef.current?.position), {
+            x: -20, duration: 2, ease: Power4.easeInOut, scrollTrigger: {
+                trigger: ".slider",
+                start: "top bottom",
+                scrub: 1
+            }
+        })
 
     }, [FontRef])
 
     useFrame((state, delta, frame) => {
-        
+
     })
 
     return (<>
