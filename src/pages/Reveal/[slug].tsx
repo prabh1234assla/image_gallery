@@ -62,15 +62,15 @@ const Reveal: FC<ParamsProps> = ({ data }) => {
 
 
     return (<>
-        <div className={data.bg_color + " h-screen w-screen flex"}>
-            <div className="w-1/2 p-10 h-screen flex items-center justify-center">
+        <div className={data.bg_color + " h-screen w-screen flex items-center justify-center"}>
+            <div className="w-[30%] p-4 flex items-center justify-center">
                 <Image src={data.media} alt={data.alt_name} height={data.ht} width={data.wd} />
             </div>
-            <div className="w-1/2 p-10 h-screen flex flex-col items-center justify-center">
-                <div className={"font-hipnouma text-[40em] mix-blend-exclusion title " + data.text_color}>
+            <div className="w-[30%] p-4 flex flex-col items-center justify-center">
+                <div className={"font-hipnouma text-[8em] mix-blend-exclusion title " + data.text_color}>
                     {data.sNo + ".) " + data.label_name}
                 </div>
-                <div className={"font-lostar text-[7em] mix-blend-color-dodge " + data.text_color}>
+                <div className={"font-lostar text-[3em] mix-blend-exclusion opacity-60 " + data.text_color}>
                     {data.label_description}
                 </div>
             </div>

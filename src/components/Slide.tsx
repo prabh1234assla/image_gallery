@@ -31,8 +31,8 @@ const Slide: FC<Props> = ({ media, label_name, text_color, bg_color, label_descr
         <>
             <div className="relative h-[200vh] w-screen flex justify-center items-center" ref={containerRef}>{
                 isVisible ? <>
-                    <div className={"h-[1080px] w-[1080px] overflow-hidden pointer-events-none " + bg_color}>
-                        <div className="h-[1080px] w-[1080px]">
+                    <div className={"h-[720px] w-[720px] overflow-hidden pointer-events-none " + bg_color}>
+                        <div className="h-[720px] w-[720px]">
                             <Canvas
                                 gl={{
                                     antialias: true
@@ -50,7 +50,7 @@ const Slide: FC<Props> = ({ media, label_name, text_color, bg_color, label_descr
                         </div>
                     </div>
 
-                    <div className={"absolute h-[1080px] w-screen mix-blend-exclusion txt font-meander left-0 text-[60em] pointer-events-none " + text_color} >
+                    <div className={"absolute h-[720px] w-screen mix-blend-exclusion txt font-meander left-0 text-[60em] pointer-events-none " + text_color} >
                         <Canvas
                             gl={{
                                 antialias: true
