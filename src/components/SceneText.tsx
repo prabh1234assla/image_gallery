@@ -34,12 +34,18 @@ const SceneText: FC<Props> = ({ text, text_color, imageSrc }) => {
     useEffect(() => {
         const tl = gsap.timeline();
 
-        tl.from(new Object(FontRef.current?.position), { x: 20 });
+        tl.from(new Object(FontRef.current?.position), { x: 10, z: 5 });
 
         tl.to(new Object(FontRef.current?.position), {
-            x: -20, duration: 2, ease: Power4.easeInOut, scrollTrigger: {
+            x: -10, duration: 0.5, ease: Power4.easeInOut, scrollTrigger: {
                 trigger: ".slider",
-                start: "top bottom",
+                scrub: 1
+            }
+        })
+
+        tl.to(new Object(FontRef.current?.position), {
+            z: -2, duration: 0.5, ease: Power4.easeInOut, scrollTrigger: {
+                trigger: ".slider",
                 scrub: 1
             }
         })
@@ -52,7 +58,7 @@ const SceneText: FC<Props> = ({ text, text_color, imageSrc }) => {
 
     return (<>
         <ambientLight intensity={Math.PI} />
-        <mesh ref={FontRef} rotation={new Euler(0, 0, 0, "XYZ")} position={new Vector3(0, -1.4, 0)}>
+        <mesh ref={FontRef} rotation={new Euler(0, 0, 0, "XYZ")} position={new Vector3(10, -1.4, 5)}>
             <textGeometry args={[text, { font, height: 0.5, size: 3 }]} />
             <MeshDistortMaterial map={useTexture(imageSrc)} speed={5} distort={0.2} />
         </mesh>

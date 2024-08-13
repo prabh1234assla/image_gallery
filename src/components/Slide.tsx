@@ -29,9 +29,9 @@ const Slide: FC<Props> = ({ media, label_name, text_color, bg_color, label_descr
     
     return (
         <>
-            <div className="relative h-[200vh] w-screen flex justify-center items-center" ref={containerRef}>{
+            <div className="relative h-[200vh] w-screen flex justify-center items-center canvas " ref={containerRef}>{
                 isVisible ? <>
-                    <div className={"h-[720px] w-[720px] overflow-hidden pointer-events-none " + bg_color}>
+                    <div className={"h-[720px] w-[720px] overflow-hidden pointer-events-none art " + bg_color}>
                         <div className="h-[720px] w-[720px]">
                             <Canvas
                                 gl={{

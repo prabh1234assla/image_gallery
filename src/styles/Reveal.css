@@ -1,0 +1,52 @@
+@media (width <= 2900px) {
+    .title {
+        font-size: 6em !important;
+    }
+
+    .info {
+        font-size: 2.5em !important;
+    }
+}
+
+@media (width <= 2200px) {
+    .title {
+        font-size: 4em !important;
+    }
+
+    .info {
+        font-size: 2em !important;
+    }
+
+    .titleinfo {
+        width: 50% !important;
+    }
+}
+
+@media (width <= 600px) {
+    .data {
+        flex-direction: column;
+    }
+
+    .img{
+        width: 50% !important;
+    }
+
+    .titleinfo {
+        width: 100vw !important;
+        height: fit-content !important;
+    }
+}
+
+@media (width <= 1700px) {
+    .title {
+        font-size: 3em !important;
+    }
+
+    .info {
+        font-size: 1.5em !important;
+    }
+}
+
+@media (width <= 400px) {
+
+}
